@@ -7,7 +7,9 @@ defmodule PropCheck.Test.Stack do
   def new(_) , do: []
 
   @spec push(stack(t), t) :: stack(t) when t: var
-  def push(s, x), do: [x | s]
+  def push(s, x) do 
+    if length(s) < 10, do: [x | s], else: s
+  end
 
   @spec pop(stack(t)) :: {t, stack(t)} when t: var
   def pop([]), do: throw "Empty Stack"
